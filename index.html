@@ -3,7 +3,7 @@
 <html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
    <meta name="viewport" content="width=480">
-   <title>Дробарка для фруктів і ягід</title>
+   <title>ковдра</title>
    <link rel="shortcut icon" href="https://avtomoykabest.wowefekt.shop/myyka-akb1/images/favicon.png.jpeg" type="image/png">
    <link rel="stylesheet" href="./drobarka_files/push.css">
    <link rel="stylesheet" href="./drobarka_files/ProximaStara.css">
@@ -1195,30 +1195,27 @@ src="https://www.facebook.com/tr?id=1065731705067774&ev=PageView&noscript=1"
              
             
                     
-           <script>
+        <script>
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('order61').addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Отримуємо значення полів
         var name = document.querySelector('input[name="name2"]').value.trim();
         var phone = document.querySelector('input[name="phone2"]').value.trim();
         var model = document.querySelector('select[name="quantity"]').value;
 
-        // Формуємо повідомлення
-        var message = `(ковдра) Нове замовлення 📦:\n` +
-                      `👤 Ім'я та прізвище: ${name}\n` +
-                      `📞 Телефон: ${phone}\n` +
-                      `📦 Обрана модель: ${model}`;
+        var message = "📦 *Нове замовлення (ковдра)*\n" +
+                      "👤 Ім'я та прізвище: " + name + "\n" +
+                      "📞 Телефон: " + phone + "\n" +
+                      "📦 Обрана модель: " + model;
 
-        // Telegram API
-        var token = '7492982602:AAGci6YXKW64JM6fdm6ud_55hYX7sAJl-PI';
-        var chatId = -4223623903;
+        var token = "ВАШ_ТОКЕН";
+        var chatId = "ВАШ_CHAT_ID"; // без лапок мінус обов'язково лишається
 
-        fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
-            method: 'POST',
+        fetch("https://api.telegram.org/bot" + token + "/sendMessage", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 chat_id: chatId,
@@ -1228,30 +1225,20 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Success:', data);
-            window.location.href = "drobarka_files/thank_you_page.html"; // Переадресація після успішної відправки
+            console.log("Success:", data);
+            if (data.ok) {
+                window.location.href = "drobarka_files/thank_you_page.html";
+            } else {
+                alert("Помилка: " + JSON.stringify(data));
+            }
         })
         .catch(error => {
-            console.error('Error:', error);
-            alert('Помилка при відправленні замовлення. Спробуйте ще раз.');
+            console.error("Error:", error);
+            alert("Помилка при відправленні замовлення. Спробуйте ще раз.");
         });
     });
 });
 </script>
-
-</script>
-<form id="order61" class="order_form">
-    <input class="field" type="text" name="name2" placeholder="Введіть Ваше ім'я та прізвище" required>
-    <input class="field" type="tel" name="phone2" placeholder="Введіть Ваш телефон" required>
-
-    <select class="field" name="quantity" required>
-        <option value="" disabled selected hidden>Обрати модель</option>
-        <option value="Дитяче(110*140) - 679 грн">Дитяче(110*140) - 679 грн.</option>
-        <option value="Полуторне(150*210) - 1039 грн">Полуторне(150*210) - 1039 грн.</option>
-         <option value="Двохспальне(180*210) - 1099 грн">Двохспальне(180*210) - 1099 грн.</option>
-         <option value="Евро-розмір(200*215) - 1199 грн">Евро-розмір(200*215) - 1199 грн.</option>
-         
-    </select>
 
     <!-- Кнопка повинна бути тут -->
     <button class="button" type="submit">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
