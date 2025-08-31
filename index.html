@@ -1206,14 +1206,14 @@ document.addEventListener('DOMContentLoaded', function () {
         var model = document.querySelector('select[name="quantity"]').value;
 
         // Формуємо повідомлення
-        var message = `(Ручна дробарка) Нове замовлення 📦:\n` +
+        var message = `(кОВДРА) Нове замовлення 📦:\n` +
                       `👤 Ім'я та прізвище: ${name}\n` +
                       `📞 Телефон: ${phone}\n` +
                       `📦 Обрана модель: ${model}`;
 
         // Telegram API
-        var token = '7913810442:AAES5Ow_I3ChQn55M3k1T6VfvZo6skLiNuM';
-        var chatId = 440354097;
+        var token = '7492982602:AAGci6YXKW64JM6fdm6ud_55hYX7sAJl-PI';
+        var chatId = -4223623903;
 
         fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
             method: 'POST',
